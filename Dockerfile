@@ -1,16 +1,16 @@
 FROM golang:1.22
 
-WORKDIR /go/src
-ENV PATH="/go/bin:${PATH}"
+USER root
+RUN apt-get update && apt-get install -y sqlite3
 
-RUN apt-get update && apt-get install sqlite3 -y
+WORKDIR /go/src
+
+ENV PATH="/go/bin:${PATH}"
 
 RUN go install github.com/golang/mock/mockgen@v1.6.0
 
-RUN usermod -u 1000 www-data
-RUN mkdir -p /var/www/.cache
-RUN chown -R www-data:www-data /go
-RUN chown -R www-data:www-data /var/www/.cache
-USER www-data
+RUN mkdir -p /var/www/.cache && \
+    chown -R root:root /go && \
+    chown -R root:root /var/www/.cache
 
 CMD ["tail", "-f", "/dev/null"]

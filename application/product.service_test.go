@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestProductServicet_Get(t *testing.T) {
+func TestProductServiceGet(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -27,7 +27,7 @@ func TestProductServicet_Get(t *testing.T) {
 	require.Equal(t, product, result)
 }
 
-func TestProductService_Create(t *testing.T) {
+func TestProductServiceCreate(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -45,7 +45,7 @@ func TestProductService_Create(t *testing.T) {
 	require.Equal(t, product, result)
 }
 
-func TestProductService_Enable(t *testing.T) {
+func TestProductServiceEnable(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
@@ -64,7 +64,7 @@ func TestProductService_Enable(t *testing.T) {
 	require.Equal(t, product, result)
 }
 
-func TestProductService_Disable(t *testing.T) {
+func TestProductServiceDisable(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
 
