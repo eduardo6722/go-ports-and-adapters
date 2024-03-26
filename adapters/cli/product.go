@@ -8,7 +8,7 @@ import (
 
 func Run(service application.IProductService, action string, productId string, productName string, price float64) (string, error) {
 	var result = ""
-
+	fmt.Println(action)
 	switch action {
 	case "create":
 		product, err := service.Create(productName, price)
