@@ -31,6 +31,7 @@ type IProduct interface {
 	GetName() string
 	GetStatus() string
 	GetPrice() float64
+	ChangePrice(newPrice float64) error
 }
 
 type ProductReader interface {
@@ -112,4 +113,12 @@ func (p *Product) GetStatus() string {
 
 func (p *Product) GetPrice() float64 {
 	return p.Price
+}
+
+func (p *Product) ChangePrice(newPrice float64) error {
+	if newPrice >= 0 {
+		p.Price = newPrice
+		return nil
+	}
+	return errors.New("the price must be greater than or equal to zero")
 }

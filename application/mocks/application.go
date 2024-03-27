@@ -34,6 +34,20 @@ func (m *MockIProduct) EXPECT() *MockIProductMockRecorder {
 	return m.recorder
 }
 
+// ChangePrice mocks base method.
+func (m *MockIProduct) ChangePrice(newPrice float64) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "ChangePrice", newPrice)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// ChangePrice indicates an expected call of ChangePrice.
+func (mr *MockIProductMockRecorder) ChangePrice(newPrice interface{}) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ChangePrice", reflect.TypeOf((*MockIProduct)(nil).ChangePrice), newPrice)
+}
+
 // Disable mocks base method.
 func (m *MockIProduct) Disable() error {
 	m.ctrl.T.Helper()
